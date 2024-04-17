@@ -4,8 +4,8 @@ public class Elixir {
     public Guid Id { get; set; }
     public string Name { get; set; }
     public string Effect { get; set; }
-    public string SideEffect { get; set; }
-    public string Characteristic { get; set; }
+    public string SideEffects { get; set; }
+    public string Characteristics { get; set; }
     public string Time { get; set; }
     public Difficulty Difficulty { get; set; }
     public ICollection<Ingredient> Ingredients { get; set; }

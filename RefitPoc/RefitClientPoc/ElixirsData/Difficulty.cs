@@ -4,7 +4,7 @@ public enum Difficulty {
     Unknown,
     Advanced,
     Moderate,
-    Begginer,
+    Beginner,
     OrdinaryWizardingLevel,
     OneOfAKind
 }

@@ -1,6 +1,6 @@
 ﻿namespace RefitClientPoc.ElixirsData;
 
-public class Elixir {
+public record Elixir {
     public Guid Id { get; set; }
     public string Name { get; set; }
     public string Effect { get; set; }

@@ -1,16 +1,49 @@
-﻿using RefitClientPoc;
-using RefitPlayground.Extensions;
+﻿using System.Text.Json;
+using RefitClientPoc;
+using RefitClientPoc.ElixirsData;
+
+// {
+//     "id": "8d65a9dd-ba59-4095-83da-95929fc0c582",
+//     "name": "Fire-Protection Potion",
+//     "effect": "Protects drinker from fire",
+//     "sideEffects": "Sensation of ice flooding body",
+//     "characteristics": "Blue in colour",
+//     "time": null,
+//     "difficulty": "Beginner",
+//     "ingredients": [
+//     {
+//         "id": "0ce74d14-196d-4b07-b3d1-edfe8a0dc5e7",
+//         "name": "Salamander blood"
+//     },
+//     {
+//         "id": "22ed69d1-0478-43ca-98a6-8e260daed784",
+//         "name": "Bursting mushrooms"
+//     },
+//     {
+//         "id": "cf2db441-f39f-42ac-8716-54d4c758aa18",
+//         "name": "Wartcap powder"
+//     }
+//     ],
+//     "inventors": [],
+//     "manufacturer": null
+// }
+
+// Weasleys' Wizard Wheezes
 
 var felixFelicisId = new Guid("f552960d-dfe6-43f5-8239-63c35d6101ab");
 var bruiseRemovalPasteId = new Guid("ae0f3421-1acf-4323-9822-d535261d949f");
 var draughtOfPeaceId = new Guid("2bc0184a-65ad-4899-90b7-3c6ce1e3156e");
 
-var client = new WizardWorldClient();
+var client = WizardWorldApiFactory.Create();
 
-// var elixir = await client.GetElixir(bruiseRemovalPasteId);
-// ConsoleHelper.WriteElixir(elixir);
+// var elixirById = await client.GetElixir(felixFelicisId);
+// ConsoleHelper.WriteElixir(elixirById);
 
-var elixirs = await client.GetElixirs();
-foreach (var elixir in elixirs) {
-    ConsoleHelper.WriteElixir(elixir);
-}
+var queryParams = new ElixirsQueryParams {
+    Name = "Fire-Protection Potion"
+};
+
+var elixirs = await client.GetElixirs(queryParams);
+Console.WriteLine(JsonSerializer.Serialize(elixirs, new JsonSerializerOptions() {
+    WriteIndented = true
+}));

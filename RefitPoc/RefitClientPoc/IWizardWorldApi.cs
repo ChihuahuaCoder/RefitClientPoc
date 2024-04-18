@@ -8,5 +8,8 @@ public interface IWizardWorldApi {
     Task<Elixir> GetElixir(Guid id);
 
     [Get("/Elixirs")]
-    Task<ICollection<Elixir>> GetElixirs();
+    Task<ICollection<Elixir>> GetElixirs(ElixirsQueryParams elixirsQueryParams);
+
+    [Post("/Feedback")]
+    Task PostFeedback();
 }

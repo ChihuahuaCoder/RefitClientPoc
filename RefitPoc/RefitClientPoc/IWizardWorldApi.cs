@@ -1,5 +1,6 @@
 ﻿using Refit;
-using RefitClientPoc.ElixirsData;
+using RefitClientPoc.Elixirs;
+using RefitClientPoc.Feedback;
 
 namespace RefitClientPoc;
 
@@ -11,5 +12,5 @@ public interface IWizardWorldApi {
     Task<ICollection<Elixir>> GetElixirs(ElixirsQueryParams elixirsQueryParams);
 
     [Post("/Feedback")]
-    Task PostFeedback();
+    Task PostFeedback(FeedbackRequest feedbackRequest);
 }

@@ -1,4 +1,4 @@
-﻿namespace RefitClientPoc.FeedbackData;
+﻿namespace RefitClientPoc.Feedback;
 
 public enum FeedbackType {
     General,

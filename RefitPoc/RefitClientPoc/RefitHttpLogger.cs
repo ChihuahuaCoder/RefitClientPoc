@@ -6,7 +6,7 @@ public class RefitHttpLogger : DelegatingHandler
 {
     private readonly ILogger _logger;
 
-    public RefitHttpLogger(ILogger logger , HttpMessageHandler innerHandler = null) : base(innerHandler ?? new HttpClientHandler()) {
+    public RefitHttpLogger(ILogger logger , HttpMessageHandler? innerHandler = null) : base(innerHandler ?? new HttpClientHandler()) {
         this._logger = logger;
     }
 

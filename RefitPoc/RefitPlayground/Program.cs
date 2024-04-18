@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using RefitClientPoc;
-using RefitClientPoc.ElixirsData;
+using RefitClientPoc.Elixirs;
 
 // {
 //     "id": "8d65a9dd-ba59-4095-83da-95929fc0c582",
@@ -44,6 +44,14 @@ var queryParams = new ElixirsQueryParams {
 };
 
 var elixirs = await client.GetElixirs(queryParams);
-Console.WriteLine(JsonSerializer.Serialize(elixirs, new JsonSerializerOptions() {
+Console.WriteLine(JsonSerializer.Serialize(elixirs, new JsonSerializerOptions {
     WriteIndented = true
 }));
+
+// var feedback = new Feedback {
+//     Id = Guid.NewGuid(),
+//     Message = "My test 123",
+//     Type = FeedbackType.Suggestion
+// };
+//
+// await client.PostFeedback(feedback);

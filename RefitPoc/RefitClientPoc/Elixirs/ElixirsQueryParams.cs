@@ -1,4 +1,4 @@
-﻿namespace RefitClientPoc.ElixirsData;
+﻿namespace RefitClientPoc.Elixirs;
 
 public class ElixirsQueryParams {
     public string? Name { get; set; }

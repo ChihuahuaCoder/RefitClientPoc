@@ -1,4 +1,5 @@
 ﻿using System.Text.Json;
+using Refit;
 using RefitClientPoc;
 using RefitClientPoc.Elixirs;
 
@@ -35,18 +36,18 @@ var bruiseRemovalPasteId = new Guid("ae0f3421-1acf-4323-9822-d535261d949f");
 var draughtOfPeaceId = new Guid("2bc0184a-65ad-4899-90b7-3c6ce1e3156e");
 
 var client = WizardWorldApiFactory.Create();
+// var client = RestService.For<IWizardWorldApi>("https://wizard-world-api.herokuapp.com");
 
-// var elixirById = await client.GetElixir(felixFelicisId);
-// ConsoleHelper.WriteElixir(elixirById);
+var elixirById = await client.GetElixir(felixFelicisId);
 
 var queryParams = new ElixirsQueryParams {
     Name = "Fire-Protection Potion"
 };
 
-var elixirs = await client.GetElixirs(queryParams);
-Console.WriteLine(JsonSerializer.Serialize(elixirs, new JsonSerializerOptions {
-    WriteIndented = true
-}));
+// var elixirs = await client.GetElixirs(queryParams);
+// Console.WriteLine(JsonSerializer.Serialize(elixirs, new JsonSerializerOptions {
+//     WriteIndented = true
+// }));
 
 // var feedback = new Feedback {
 //     Id = Guid.NewGuid(),
